@@ -19,7 +19,7 @@ Answer the following in this file:
   of all students (assume I know all potential secret IDs and have your 
   `salted-data.csv`)
 
-50^1303 total combinations.
+`50^1303` total combinations.
 * Instead of salts, if you were to use a nonce (unique number for each hashed
   field) how many possible combinations would I need to try?
 
