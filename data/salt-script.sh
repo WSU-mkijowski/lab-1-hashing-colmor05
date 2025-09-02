@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Prints the first column.            # While loop for each line.
-awk -F ',' '{print $1}' quiz_data.csv | while read -r line; do
-        # Generates a random number for a salt.
-        salt=$((RANDOM % 90000 + 10000))
-        # Prints the hashed names.
-        echo -n "${line}${salt}" | sha256sum | awk '{print $1, salt}'
-done
+# -F splits on commas | -v starts salt variable at 10000 | val=$1 salt_inc=salt++ increments salt by 1 | 
+# printf prints string back two strings back to back and adds a new line.
+awk -F',' -v salt=10000 '{ val+$1 salt_inc=salt++ ; printf "%s%s\n", $1, salt_inc | "sha256sum" }' quiz_data.csv
