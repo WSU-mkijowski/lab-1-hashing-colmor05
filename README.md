@@ -19,18 +19,24 @@ Answer the following in this file:
   of all students (assume I know all potential secret IDs and have your 
   `salted-data.csv`)
 
-1303 x 1303 = `1,697,809` combinations.
+50^1303 total combinations.
 * Instead of salts, if you were to use a nonce (unique number for each hashed
   field) how many possible combinations would I need to try?
+
+1303 x 1303 = `1,697,809` combinations.
 * Given the above, if this quiz data were *actual* class data, say for example
   your final exam, how would you store this dataset?  Why?
 
 ```bash
 #!/bin/bash
 
-# -F splits on commas | -v starts salt variable at 10000 | val=$1 salt_inc=salt++ increments salt by 1 | 
-# printf prints string back two strings back to back and adds a new line.
-awk -F',' -v salt=10000 '{ val+$1 salt_inc=salt++ ; printf "%s%s\n", $1, salt_inc | "sha256sum" }' quiz_data.csv
+# Prints the first column.            # While loop for each line.
+awk -F ',' '{print $1}' quiz_data.csv | while read -r line; do
+        # Generates a random number for a salt for 50 different numbers.
+        salt=$((RANDOM % (10049 - 10000 + 1) + 10000))
+        # Prints the hashed names.
+        echo -n "${salt}${line}" | sha256sum | awk '{print $1, salt}'
+done
 ```
 
 ---
