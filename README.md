@@ -10,6 +10,8 @@
 Answer the following in this file:
 
 * How many unique users are in the data?
+
+42 Users
 * How many salts did you create?
 * How many possible combinations will I need to try to figure out the secret ID
   of all students (assume I know all potential secret IDs and have your 
@@ -20,8 +22,15 @@ Answer the following in this file:
   your final exam, how would you store this dataset?  Why?
 
 ```bash
-please put any cool bash one-liners or other piped commands you
-learned/struggled with for task 1 here
+#!/bin/bash
+
+# Prints the first column.            # While loop for each line.
+awk -F ',' '{print $1}' quiz_data.csv | while read -r line; do
+        # Generates a random number for a salt.
+        salt=$((RANDOM % 90000 + 10000))
+        # Prints the hashed names.
+        echo -n "${line}${salt}" | sha256sum | awk '{print $1, salt}'
+done
 ```
 
 ---
