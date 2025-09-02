@@ -27,6 +27,8 @@ Answer the following in this file:
 * Given the above, if this quiz data were *actual* class data, say for example
   your final exam, how would you store this dataset?  Why?
 
+It would be stored in a database for quiz data. The reason for it being hashed and salted would to be for access to only the student and possibly the professor/adminitation staff.
+
 ```bash
 #!/bin/bash
 
@@ -35,7 +37,7 @@ awk -F ',' '{print $1}' quiz_data.csv | while read -r line; do
         # Generates a random number for a salt for 50 different numbers.
         salt=$((RANDOM % (10049 - 10000 + 1) + 10000))
         # Prints the hashed names.
-        printf -n "${salt}${line}" | sha256sum | awk '{print $1, salt}'
+        printf "${salt}${line}" | sha256sum | awk '{print $1, salt}'
 done
 ```
 
