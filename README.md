@@ -14,7 +14,7 @@ Answer the following in this file:
 42 users.
 * How many salts did you create?
 
-1303 salts starting with 10000 and incrementing by 1 per line.
+50 salts.
 * How many possible combinations will I need to try to figure out the secret ID
   of all students (assume I know all potential secret IDs and have your 
   `salted-data.csv`)
