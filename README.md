@@ -35,7 +35,7 @@ awk -F ',' '{print $1}' quiz_data.csv | while read -r line; do
         # Generates a random number for a salt for 50 different numbers.
         salt=$((RANDOM % (10049 - 10000 + 1) + 10000))
         # Prints the hashed names.
-        echo -n "${salt}${line}" | sha256sum | awk '{print $1, salt}'
+        printf -n "${salt}${line}" | sha256sum | awk '{print $1, salt}'
 done
 ```
 
