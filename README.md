@@ -54,19 +54,34 @@ Answer the following:
 hash)
 
 ```
-
+73mosque - 0009549cd1d622aa41b72d607b44f4acd5ce5e8785ae5621c5fc171e87469c84
+129say - 000aecbcc10d9bac7d7624716def961640acbb2084e8ffeb1fe352e501b0ec99
+425tree - 0002429c1591bd550356400da94148182e8465496e6f13bc9ed3b521bd9f58bd
+902alive - 0004a5344d92a6dc8983caa43a57c3579e5500bac2e52e95eaeef5f26128cdb9
+425dictionary - 000fa2f4ba119690bc6949098dc190d75a6aadb15737277b88e5ac80b9f1b88d
+213commonly - 00085b7acd4d28fa1453a185c8d3bfb700b1ddc8f971a34c44cd50bc851f2b40
 ```
 
 * How many words were in your dictionary?
+
+63 words.
 * How many nonces did your code iterate over?
+
+10000
 * What was the maximum number of hashes your code *could* compute given the above?
+
+Unknown due to the code being an infinate while loop.
 * What did you think about Task 2?
+
+It is interesting to have an idea on how crypto is mined, even though my computer cannot do as much as machines that are built for mining crypto.
 * Is there a better way than brute force to attempt to get higher valued coins?
+
+I don't believe so.
 * Why or why not?
 
+There is not another effective way (or at least an easier way) to get higher valued coins other than brute forcing as of now. It all depends on computing power and patiance.
 
 ```bash
-please put any cool bash one-liners or other piped commands you
-learned/struggled with for task 2 here
+while true; do
 ```
 
